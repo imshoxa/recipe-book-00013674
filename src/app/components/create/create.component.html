@@ -1,0 +1,30 @@
+<!-- Student ID 00013674 -->
+<div class="flex justify-center mt-8 p-8">
+    <form action="" class="shadow border w-4/12">
+        <div class="flex">
+            <mat-form-field class="w-full">
+                <mat-label>Title</mat-label>
+                <input type="text" name="title" matInput[(ngModel)]="itemToCreate.title">
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-form-field class="w-full">
+                <mat-label>Description</mat-label>
+                <input type="text" name="description">
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-form-field class="w-full">
+                <mat-label>Choose Category</mat-label>
+                <mat-select name="Category" [(ngModel)]="selectedCategoryID">
+                    @for (item of categories; track $index) {
+                        <mat-option [value]="item.id">{{ item.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="flex"> 
+            <button mat-raised-button (click)="onCreateBtn()" color="primary">Create</button>
+        </div>
+    </form>
+</div>
